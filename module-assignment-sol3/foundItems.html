@@ -1,0 +1,15 @@
+<div class="card-header">
+  {{ list.myTitle }}
+</div>
+<div class="card-body">
+  <ol class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center" ng-repeat="item in list.items">
+      <div class="card-text mr-auto p-2" style="max-width:420px"><strong>Name:</strong> {{ item.name }} <br/>
+      <strong>Short Name:</strong> {{ item.short_name }} <br/>
+      <strong>Description:</strong> {{ item.description }}</div>
+      <div class="p-2" style="min-width:200px;max-width:200px">
+        <button class="btn btn-secondary" ng-click="list.onRemove({index: $index});">Don't want this one!</button></div>
+    </li>
+  </ol>
+  <p ng-if="!list.items.length" class="text-secondary">Nothing Found!</p>
+</div>

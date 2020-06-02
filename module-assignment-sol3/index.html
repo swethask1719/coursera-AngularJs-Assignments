@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app='NarrowItDownApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/yeti/bootstrap.min.css">
+    <link rel="icon"
+      type="image/png"
+      href="favicon.ico">
+    <title>Narrow It Down</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+          <h1>Get Menu Items</h1>
+    </div>
+
+
+      <div class="container-fluid" id="list" ng-controller='NarrowItDownController as list'>
+        <div class="d-flex mb-3" style="max-width:400px">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" ng-model="list.description" placeholder="item description">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" ng-click="list.search();">Narrow It Down For Me!</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-light mb-3" style="max-width:720px">
+          <!-- found items template will take a list object, title and function reference-->
+                <found-items
+                  title="list.title"
+                  items="list.found"
+                  on-remove="list.removeItem(index)"></found-items>
+        </div>
+
+    </div>
+
+
+  </body>
+</html>
